@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Modal.js</title>
+	<link rel="stylesheet" href="css/modal.min.css">
+</head>
+<body>
+
+	<button>Open modal</button>
+
+	<script src="js/modal.min.js"></script>
+	<script>
+		document.getElementsByTagName('button')[0].addEventListener('click', () => {
+			new Modal({content: 'test', center: true});
+		});
+	</script>
+
+</body>
+</html>
