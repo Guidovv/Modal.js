@@ -115,7 +115,7 @@
 			this.close_button.addEventListener('click', this.close.bind(modal));
 		}
 
-		this.modal.addEventListener('transitionend', function(e) {
+		this.modal.addEventListener(this.transitionEnd, function(e) {
 			if ('opacity' == e.propertyName && typeof modal.visible == 'function') {
 				modal.visible();
 			}
