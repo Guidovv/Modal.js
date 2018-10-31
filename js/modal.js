@@ -34,6 +34,10 @@
 		var _ = this;
  		var parent;
 
+ 		if (typeof this.beforeClose == 'function') {
+			this.beforeClose();
+		}
+
 		this.modal.classList.remove('open');
 
 		document.body.classList.remove('has-modal');
@@ -52,11 +56,19 @@
 	Modal.prototype.open = function() {
 		document.body.classList.add('has-modal');
 
+		if (typeof this.beforeOpen == 'function') {
+			this.beforeOpen();
+		}
+
 		create.call(this);
 		window.getComputedStyle(this.modal).height;
 
 		initializeEvents.call(this);
 		this.modal.classList.add( (this.modal.offsetHeight > window.innerHeight ? 'open absolute' : 'open') );
+
+		if (typeof this.opened == 'function') {
+			this.opened();
+		}
 	}
 
 	function create() {
