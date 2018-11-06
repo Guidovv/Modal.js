@@ -134,10 +134,11 @@
 		}, false);
 
 		this.modal.addEventListener('click', function(e) {
-			for (var i = 0; i < e.target.classList.length; i++) {
-				if (e.target.parentNode == document.body) {
-					modal.close();
-				}
+			if (e.target.classList.length == 0) {
+				return;
+			}
+			if (hasClasses(e.target, ['modal', 'open'])) {
+				modal.close();
 			}
 		});
 
@@ -156,5 +157,13 @@
 		if (el.style.WebkitTransition) return 'webkitTransitionEnd';
 		if (el.style.OTransition) return 'oTransitionEnd';
 		return 'transitionend';
+	}
+
+	function hasClasses(element, classes) {
+		if (classes.length == 0) return;
+		var result = classes.every(function(item) {
+			return element.classList.contains(item);
+		});
+		return result;
 	}
 })();
