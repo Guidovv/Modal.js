@@ -26,7 +26,10 @@
 		this.options = extendDefaults(defaults, arguments.length ? arguments[0] : {});
 
 		if (!!this.options.auto_open) {
-			this.open();
+			var t = this;
+			setTimeout(function() {
+				t.open();
+			}, 0);
 		}
 	}
 
