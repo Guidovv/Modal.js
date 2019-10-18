@@ -67,7 +67,12 @@
 		window.getComputedStyle(this.modal).height;
 
 		initializeEvents.call(this);
-		this.modal.classList.add( (this.modal.offsetHeight > window.innerHeight ? 'open absolute' : 'open') );
+
+		this.modal.classList.add('open');
+
+		if (this.modal.offsetHeight > window.innerHeight) {
+			this.modal.classList.add('absolute');
+		}
 
 		if (typeof this.opened == 'function') {
 			this.opened();
