@@ -15,6 +15,8 @@ m.beforeOpen = function() {
 };
 ```
 ### Options
+Options can be set on each modal instance but global options can also be defined using the `window.globalModalOptions` which takes an object with the values displayed below.
+
 All options are optional
 
 | Option | Value |
@@ -24,6 +26,9 @@ All options are optional
 | `close_button` | **(Bool)** Should the modal contain a close button|
 | `content` | **(String)** Content of the modal|
 | `center` | **(Bool)** If true, the modal will automaticly be centered|
+| `confirm_button` | **(String)** Text that will be displayed in the button. Leave empty if you don't want a confirm button|
+| `confirm_button_class_names` | **(String)** Class names that will be added to the confirm button|
+
 
 ### Lifecycle methods
 | Method | Description |
@@ -31,4 +36,4 @@ All options are optional
 | `beforeOpen` | Called right before the modal will open |
 | `opened` | Called when the modal is completely visible|
 | `beforeClose` | Called right before the modal will close|
-| `closed` | Called when the modal has closed|
+| `closed` | Called when the modal has closed. Comes with an argument `closed_via_confirm_button` which is true when the modal is closed via the confirm button|
